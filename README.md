@@ -8,7 +8,7 @@
 
 Запуск (Команда виконується в терміналі PowerShell з правами Адміністратора):
 
-```
+```powershell
 $ScriptBlock = [scriptblock]::Create((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mErlin-sp/mhddos_powershell/master/runner.ps1')); Invoke-Command -ScriptBlock $ScriptBlock -ArgumentList ''
 ```
   
