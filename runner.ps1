@@ -1,12 +1,12 @@
 # Installing Choco
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) 
-Set-Variable "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
-# Installing Python
-choco install -y python3
+choco install -y python3 # Installing Python
 
-# Installing GIT
-choco install -y git
+choco install -y git # Installing GIT
+
+refreshenv
 
 ###
 Set-Location '~'
