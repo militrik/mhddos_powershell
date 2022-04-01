@@ -7,6 +7,7 @@ choco upgrade chocolatey -y
 
 choco install -y python3 # Install Python
 choco upgrade python3 -y
+python -m pip install --upgrade pip
 #choco install -y pip # Install Python Pip
 
 choco install -y git # Install GIT
@@ -22,7 +23,6 @@ git clone 'https://github.com/porthole-ascend-cinnamon/mhddos_proxy.git'
 Set-Location '~/mhddos_proxy'
 Remove-Item 'proxies_config.json' -Recurse -Force
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/opengs/uashieldtargets/v2/proxy.json -OutFile ./proxy.json
-#Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/opengs/uashieldtargets/v2/proxy.json'))
 python -m pip install -r 'requirements.txt'
 
 $p = ' -p 1200'
