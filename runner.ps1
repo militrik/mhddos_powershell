@@ -24,6 +24,8 @@ Remove-Item 'proxies_config.json' -Recurse -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/opengs/uashieldtargets/v2/proxy.json'))
 python -m pip install -r 'requirements.txt'
 
+[System.Threading.Thread]::Sleep()
+
 $p = ' -p 1200'
 $rpc = ' --rpc 1000'
 $debug = ' --debug'
