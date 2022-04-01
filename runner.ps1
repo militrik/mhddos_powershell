@@ -5,7 +5,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 choco install -y python3 # Install Python
-choco install -y pip # Install Python Pip
 
 choco install -y git # Install GIT
 
