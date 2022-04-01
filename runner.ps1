@@ -22,8 +22,8 @@ Remove-Item 'mhddos_proxy' -Recurse -Force
 git clone 'https://github.com/porthole-ascend-cinnamon/mhddos_proxy.git'
 Set-Location '~/mhddos_proxy'
 Remove-Item 'proxies_config.json' -Recurse -Force
-#Invoke-WebRequest -Uri https://raw.githubusercontent.com/opengs/uashieldtargets/v2/proxy.json -OutFile ./proxy.json
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/Aruiem234/mhddosproxy/main/proxies_config.json -OutFile ./proxy.json
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/opengs/uashieldtargets/v2/proxy.json -OutFile ./proxy.json
+#Invoke-WebRequest -Uri https://raw.githubusercontent.com/Aruiem234/mhddosproxy/main/proxies_config.json -OutFile ./proxy.json
 python -m pip install -r 'requirements.txt'
 
 $p = ' -p 1200'
