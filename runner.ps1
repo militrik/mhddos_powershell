@@ -1,22 +1,23 @@
-# $ScriptBlock = [scriptblock]::Create((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mErlin-sp/mhddos_powershell/master/runner.ps1')); Invoke-Command -ScriptBlock $ScriptBlock -ArgumentList ''
 
-# Install Choco
+# Install and upgrade Choco
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 choco upgrade chocolatey -y
 
-choco install -y python3 # Install Python
-choco upgrade python3 -y
+# Install and upgrade Python
+choco install -y python3 
+choco upgrade python3 -y 
 python -m pip install --upgrade pip
-#choco install -y pip # Install Python Pip
 
-choco install -y git # Install GIT
+# Install and upgrade GIT
+choco install -y git 
 choco upgrade git -y
 
+# Refresh env variables
 refreshenv
-$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") # Refresh env variables
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
-###
+#Install and update DDoS tools
 Set-Location '~'
 Remove-Item 'mhddos_proxy' -Recurse -Force
 git clone 'https://github.com/porthole-ascend-cinnamon/mhddos_proxy.git'
